@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Goose Wordle</title>
+</head>
+<body>
+    <div class="name">
+        <h1>Goose Wordle</h1>
+    </div>
+    <div class="win" id="visibility">
+        <h1>Well done!</h1>
+    </div>
+    <div class="board">
+        <div class="board-row" id="firstRow">
+            <input type="button" class="square" value="" id="cell1">
+            <input type="button" class="square" value="" id="cell2">
+            <input type="button" class="square" value="" id="cell3">
+            <input type="button" class="square" value="" id="cell4">
+            <input type="button" class="square" value="" id="cell5">
+        </div>
+        <div class="board-row" id="secondRow">
+            <input type="button" class="square" value="" id="cell6">
+            <input type="button" class="square" value="" id="cell7">
+            <input type="button" class="square" value="" id="cell8">
+            <input type="button" class="square" value="" id="cell9">
+            <input type="button" class="square" value="" id="cell10">
+        </div>
+        <div class="board-row" id="thirdRow">
+            <input type="button" class="square" value="" id="cell11">
+            <input type="button" class="square" value="" id="cell12">
+            <input type="button" class="square" value="" id="cell13">
+            <input type="button" class="square" value="" id="cell14">
+            <input type="button" class="square" value="" id="cell15">
+        </div>
+        <div class="board-row" id="fourthRow">
+            <input type="button" class="square" value="" id="cell16">
+            <input type="button" class="square" value="" id="cell17">
+            <input type="button" class="square" value="" id="cell18">
+            <input type="button" class="square" value="" id="cell19">
+            <input type="button" class="square" value="" id="cell20">
+        </div>
+        <div class="board-row" id="fifthRow">
+            <input type="button" class="square" value="" id="cell21">
+            <input type="button" class="square" value="" id="cell22">
+            <input type="button" class="square" value="" id="cell23">
+            <input type="button" class="square" value="" id="cell24">
+            <input type="button" class="square" value="" id="cell25">
+        </div>
+        <div class="board-row" id="sixthRow">
+            <input type="button" class="square" value="" id="cell26">
+            <input type="button" class="square" value="" id="cell27">
+            <input type="button" class="square" value="" id="cell28">
+            <input type="button" class="square" value="" id="cell29">
+            <input type="button" class="square" value="" id="cell30">
+        </div>
+    </div>
+    <div class="keyboard">
+        <div class="keyboardRow">
+            <input type="button" class="key" value="Q" id="keyQ">
+            <input type="button" class="key" value="W" id="keyW">
+            <input type="button" class="key" value="E" id="keyE">
+            <input type="button" class="key" value="R" id="keyR">
+            <input type="button" class="key" value="T" id="keyT">
+            <input type="button" class="key" value="Y" id="keyY">
+            <input type="button" class="key" value="U" id="keyU">
+            <input type="button" class="key" value="I" id="keyI">
+            <input type="button" class="key" value="O" id="keyO">
+            <input type="button" class="key" value="P" id="keyP">
+        </div>
+        <div class="keyboardRow">
+            <input type="button" class="key" value="A" id="keyA">
+            <input type="button" class="key" value="S" id="keyS">
+            <input type="button" class="key" value="D" id="keyD">
+            <input type="button" class="key" value="F" id="keyF">
+            <input type="button" class="key" value="G" id="keyG">
+            <input type="button" class="key" value="H" id="keyH">
+            <input type="button" class="key" value="J" id="keyJ">
+            <input type="button" class="key" value="K" id="keyK">
+            <input type="button" class="key" value="L" id="keyL">
+        </div>
+        <div class="keyboardRow">
+            <input type="button" class="keyEnter" value="Enter" id="keyEnter">
+            <input type="button" class="key" value="Z" id="keyZ">
+            <input type="button" class="key" value="X" id="keyX">
+            <input type="button" class="key" value="C" id="keyC">
+            <input type="button" class="key" value="V" id="keyV">
+            <input type="button" class="key" value="B" id="keyB">
+            <input type="button" class="key" value="N" id="keyN">
+            <input type="button" class="key" value="M" id="keyM">
+            <input type="button" class="key" value="&#8656;" id="keyBack">
+        </div>
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>

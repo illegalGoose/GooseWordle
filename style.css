@@ -1,0 +1,80 @@
+body{
+    background: rgb(24, 24, 24);
+}
+
+.name{
+    color: white;
+    font-family: 'Times New Roman', serif;
+    display: flex;
+    justify-content: center;
+    font-size: 30px;
+    margin-bottom: -66px;
+}
+
+
+.board-row {
+    display: flex;
+    justify-content: center;
+  }
+
+.square{
+    background: rgb(24, 24, 24);
+    border: 2px solid;
+    border-color: rgb(68, 67, 67);
+    width: 60px;
+    height: 60px;
+    margin-left: 5px;
+    margin-top: 5px;
+    text-align: center;
+}
+
+.keyboardRow{
+    display: flex;
+    justify-content: center;
+}
+
+.keyboard{
+    margin-top: 10px;
+}
+
+.key{
+    background: rgb(141, 139, 139);
+    width: 50px;
+    height: 60px;
+    border: solid;
+    border-radius: 7px;
+    font-size: 20px;
+    color: white;
+    border-color: black;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.key:hover{
+    background: rgb(100, 99, 99);
+}
+
+.keyEnter{
+    background: rgb(141, 139, 139);
+    width: 50px;
+    height: 60px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 12px;
+    text-align: center;
+    border: solid;
+    border-radius: 7px;
+    color: white;
+    border-color: black;
+}
+
+.keyEnter:hover{
+    background: rgb(100, 99, 99);
+}
+
+.win{
+    color: white;
+    display: flex;
+    justify-content: center;
+    visibility: hidden;
+    opacity: 0;
+    margin-bottom: -10px;
+}
