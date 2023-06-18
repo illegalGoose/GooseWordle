@@ -1,32 +1,32 @@
-// Need to add keyBack and solve the problem with the pre-existing letter color.
-const keyQ = document.getElementById('keyQ'),
-    keyW = document.getElementById('keyW'),
-    keyE = document.getElementById('keyE'),
-    keyR = document.getElementById('keyR'),
-    keyT = document.getElementById('keyT'),
-    keyY = document.getElementById('keyY'),
-    keyU = document.getElementById('keyU'),
-    keyI = document.getElementById('keyI'),
-    keyO = document.getElementById('keyO'),
-    keyP = document.getElementById('keyP'),
-    keyA = document.getElementById('keyA'),
-    keyS = document.getElementById('keyS'),
-    keyD = document.getElementById('keyD'),
-    keyF = document.getElementById('keyF'),
-    keyG = document.getElementById('keyG'),
-    keyH = document.getElementById('keyH'),
-    keyJ = document.getElementById('keyJ'),
-    keyK = document.getElementById('keyK'),
-    keyL = document.getElementById('keyL'),
-    keyZ = document.getElementById('keyZ'),
-    keyX = document.getElementById('keyX'),
-    keyC = document.getElementById('keyC'),
-    keyV = document.getElementById('keyV'),
-    keyB = document.getElementById('keyB'),
-    keyN = document.getElementById('keyN'),
-    keyM = document.getElementById('keyM'),
-    keyBack = document.getElementById('keyBack'),
-    keyEnter = document.getElementById('keyEnter');
+const array = [document.getElementById('keyQ'),
+    document.getElementById('keyW'),
+    document.getElementById('keyE'),
+    document.getElementById('keyR'),
+    document.getElementById('keyT'),
+    document.getElementById('keyY'),
+    document.getElementById('keyU'),
+    document.getElementById('keyI'),
+    document.getElementById('keyO'),
+    document.getElementById('keyP'),
+    document.getElementById('keyA'),
+    document.getElementById('keyS'),
+    document.getElementById('keyD'),
+    document.getElementById('keyF'),
+    document.getElementById('keyG'),
+    document.getElementById('keyH'),
+    document.getElementById('keyJ'),
+    document.getElementById('keyK'),
+    document.getElementById('keyL'),
+    document.getElementById('keyZ'),
+    document.getElementById('keyX'),
+    document.getElementById('keyC'),
+    document.getElementById('keyV'),
+    document.getElementById('keyB'),
+    document.getElementById('keyN'),
+    document.getElementById('keyM')];
+
+const keyBack = document.getElementById('keyBack');
+const keyEnter = document.getElementById('keyEnter');
 
 let cellNum = 1;
 let cellString = 'cell';
@@ -173,31 +173,9 @@ function row1(){
     }
 }
 
-keyQ.addEventListener('click', row1);
-keyW.addEventListener('click', row1);
-keyE.addEventListener('click', row1);
-keyR.addEventListener('click', row1);
-keyT.addEventListener('click', row1);
-keyY.addEventListener('click', row1);
-keyU.addEventListener('click', row1);
-keyI.addEventListener('click', row1);
-keyO.addEventListener('click', row1);
-keyP.addEventListener('click', row1);
-keyA.addEventListener('click', row1);
-keyS.addEventListener('click', row1);
-keyD.addEventListener('click', row1);
-keyF.addEventListener('click', row1);
-keyG.addEventListener('click', row1);
-keyH.addEventListener('click', row1);
-keyJ.addEventListener('click', row1);
-keyK.addEventListener('click', row1);
-keyL.addEventListener('click', row1);
-keyZ.addEventListener('click', row1);
-keyX.addEventListener('click', row1);
-keyC.addEventListener('click', row1);
-keyV.addEventListener('click', row1);
-keyB.addEventListener('click', row1);
-keyN.addEventListener('click', row1);
-keyM.addEventListener('click', row1);
-keyEnter.addEventListener('click', analyze);
+for (let  button of array){
+    button.addEventListener('click', row1);
+}
+
 keyBack.addEventListener('click', back);
+keyEnter.addEventListener('click', analyze);
