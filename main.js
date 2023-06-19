@@ -40,8 +40,15 @@ let nonExistentKeys = [];
 let finalResult = [];
 let win = [];
 
-const word = 'GOOSE';
+let word = 'GOOSE';
 let supposedWord = '';
+
+setInterval(() => {
+    let changedWord = Math.floor(Math.random() * dictionary.length);
+    word = dictionary[changedWord].toUpperCase();
+    console.log(word);
+}, 8.64e+7);
+
 
 function notEnoughLetters(){
     let toaster = document.getElementById('toaster');
@@ -85,7 +92,12 @@ function back(){
                 cellStringNum = cellString + cellNum.toString();
                 document.getElementById(cellStringNum).value = '';
     }else{
-        if(cellStringNum == 'cell1'){
+        if(cellStringNum == 'cell1' ||
+           cellStringNum == 'cell6' ||
+           cellStringNum == 'cell11' ||
+           cellStringNum == 'cell16' ||
+           cellStringNum == 'cell21' ||
+           cellStringNum == 'cell26'){
             return;
         }else{
             cellNum = cellNum - 1;
