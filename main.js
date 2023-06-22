@@ -75,6 +75,8 @@ function checkStorage(){
             cellString = localStorage.getItem('cellString');
             cellNum = Number(localStorage.getItem('cellNum'));
             cellStringNum = localStorage.getItem('cellStringNum');
+            word = localStorage.getItem('word');
+            win = ["true", "true", "true", "true", "true"];
         }
         return;
     }else{
@@ -225,12 +227,14 @@ function analyze(){
         localStorage.setItem('cellNum', cellNum);
         localStorage.setItem('cellStringNum', cellStringNum);
         localStorage.setItem('cellString', cellString);
+        localStorage.setItem('word', word);
     }
      
 }
 
 
 function row1(){
+    console.log(word);
     if(win.length == 5){
         return;
     }else{
