@@ -42,13 +42,50 @@ let win = [];
 
 let word = 'GOOSE';
 let supposedWord = '';
+let formData = {};
+let currentDay = new Date().toString().slice(8,10); // 22
 
-setInterval(() => {
-    let changedWord = Math.floor(Math.random() * dictionary.length);
-    word = dictionary[changedWord].toUpperCase();
-    console.log(word);
-}, 8.64e+7);
 
+function checkStorage(){
+    if(currentDay == localStorage.getItem('day')){
+        if(localStorage.getItem('formData')){
+            formData = JSON.parse(localStorage.getItem('formData'));
+            for(let el of document.getElementsByClassName('square')){
+                let elId = formData[el.id];
+                let elStyle = formData[el.id + "Style"];
+                el.value = elId;
+                el.style.background = elStyle;
+            }
+            for(let el of document.getElementsByClassName('key')){
+                let elId = formData[el.id];
+                el.style.background = elId;
+                
+            }
+            for(let el of document.getElementsByClassName('square')){
+                el.style.color = 'white';
+                el.style.fontSize = '30px';
+                el.style.fontFamily = 'Courier New', 'Courier', 'monospace';
+                el.style.fontWeight = '900';
+                el.style.background = "rotate(180 deg)";
+            }
+            if(win.length == 5){
+                document.getElementById('winVisibility').style.visibility = "visible";
+                document.getElementById('winVisibility').style.opacity = "5";
+            }
+            cellString = localStorage.getItem('cellString');
+            cellNum = Number(localStorage.getItem('cellNum'));
+            cellStringNum = localStorage.getItem('cellStringNum');
+        }
+        return;
+    }else{
+        localStorage.clear();
+        formData = {};
+        let changedWord = Math.floor(Math.random() * dictionary.length);
+        word = dictionary[changedWord].toUpperCase();
+    }
+}
+
+checkStorage();
 
 function notEnoughLetters(){
     let toaster = document.getElementById('toaster');
@@ -75,7 +112,6 @@ function notInList(){
 }
 
 function back(){
-    console.log(cellStringNum);
     supposedWord = supposedWord.slice(0, -1);
     if(cellStringNum == 'cell5' || cellStringNum == 'cell10' ||
        cellStringNum == 'cell15' || cellStringNum == 'cell20' ||
@@ -164,9 +200,9 @@ function analyze(){
                     }
                 }
                 if(win.length == 5){
-                    document.getElementById('visibility').style.visibility = "visible";
-                    document.getElementById('visibility').style.opacity = "5";
-                    document.getElementById('visibility').style.transition = "1s";
+                    document.getElementById('winVisibility').style.visibility = "visible";
+                    document.getElementById('winVisibility').style.opacity = "5";
+                    document.getElementById('winVisibility').style.transition = "1s";
                 }
                 finalResult = [];
             }else{
@@ -175,6 +211,20 @@ function analyze(){
         }else{
             notInList();
         }
+        for(let cell of document.getElementsByClassName('square')){
+            formData[cell.id] = cell.value;
+        }
+        for(let cell of document.getElementsByClassName('square')){
+            formData[cell.id + "Style"] = cell.style.background;
+        }
+        for(let key of document.getElementsByClassName('key')){
+            formData[key.id] = key.style.background;
+        }
+        localStorage.setItem('formData', JSON.stringify(formData));
+        localStorage.setItem('day', currentDay);
+        localStorage.setItem('cellNum', cellNum);
+        localStorage.setItem('cellStringNum', cellStringNum);
+        localStorage.setItem('cellString', cellString);
     }
      
 }
