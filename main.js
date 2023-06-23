@@ -40,7 +40,7 @@ let nonExistentKeys = [];
 let finalResult = [];
 let win = [];
 
-let word = 'GOOSE';
+let word = '';
 let supposedWord = '';
 let formData = {};
 let currentDay = new Date().toString().slice(8,10); // 22
@@ -68,15 +68,14 @@ function checkStorage(){
                 el.style.fontWeight = '900';
                 el.style.background = "rotate(180 deg)";
             }
-            if(win.length == 5){
-                document.getElementById('winVisibility').style.visibility = "visible";
-                document.getElementById('winVisibility').style.opacity = "5";
+            win = localStorage.getItem('win').split(",");
+            if(win.length == 5 || localStorage.getItem('cellStringNum') == 'cell31'){
+                document.getElementById('timer').style.visibility = "visible";
             }
             cellString = localStorage.getItem('cellString');
             cellNum = Number(localStorage.getItem('cellNum'));
             cellStringNum = localStorage.getItem('cellStringNum');
             word = localStorage.getItem('word');
-            win = ["true", "true", "true", "true", "true"];
         }
         return;
     }else{
@@ -84,6 +83,7 @@ function checkStorage(){
         formData = {};
         let changedWord = Math.floor(Math.random() * dictionary.length);
         word = dictionary[changedWord].toUpperCase();
+        win = [];
     }
 }
 
@@ -210,31 +210,41 @@ function analyze(){
             }else{
                 return;
             }
+            for(let cell of document.getElementsByClassName('square')){
+                formData[cell.id] = cell.value;
+            }
+            for(let cell of document.getElementsByClassName('square')){
+                formData[cell.id + "Style"] = cell.style.background;
+            }
+            for(let key of document.getElementsByClassName('key')){
+                formData[key.id] = key.style.background;
+            }
+            localStorage.setItem('formData', JSON.stringify(formData));
+            localStorage.setItem('day', currentDay);
+            localStorage.setItem('cellNum', cellNum);
+            localStorage.setItem('cellStringNum', cellStringNum);
+            localStorage.setItem('cellString', cellString);
+            localStorage.setItem('word', word);
+            localStorage.setItem('win', win);
+            if(cellStringNum == 'cell31' && win.length != 5){
+                let toaster = document.getElementById('toaster');
+                toaster.textContent = word;
+                toaster.style.fontWeight = '900';
+                toaster.style.opacity = "1";
+                toaster.style.transition = "0s";
+                setTimeout(() => {
+                    toaster.style.opacity = "0";
+                    toaster.style.transition = "4s";
+                }, "700")
+            }
         }else{
             notInList();
         }
-        for(let cell of document.getElementsByClassName('square')){
-            formData[cell.id] = cell.value;
-        }
-        for(let cell of document.getElementsByClassName('square')){
-            formData[cell.id + "Style"] = cell.style.background;
-        }
-        for(let key of document.getElementsByClassName('key')){
-            formData[key.id] = key.style.background;
-        }
-        localStorage.setItem('formData', JSON.stringify(formData));
-        localStorage.setItem('day', currentDay);
-        localStorage.setItem('cellNum', cellNum);
-        localStorage.setItem('cellStringNum', cellStringNum);
-        localStorage.setItem('cellString', cellString);
-        localStorage.setItem('word', word);
     }
-     
 }
 
 
 function row1(){
-    console.log(word);
     if(win.length == 5){
         return;
     }else{
