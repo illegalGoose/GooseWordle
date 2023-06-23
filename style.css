@@ -102,4 +102,13 @@ body{
     position: relative;
     opacity: 0;
 }
+
+.Timer{
+    color: white;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    visibility: hidden;
+    margin-bottom: -80px;
+}
   
